@@ -1,10 +1,15 @@
-Required
-	Node (v14.15.4 recommended), .NET Core Runtime (3.1 LTS or higher), http-server (npm install http-server -g)
+Required	
+	
+	Node (v14.15.4 recommended)
+	
+	.NET Core Runtime (3.1 LTS or higher)
+	
+	http-server (npm install http-server -g)
 
 
 *Start projects*
-* Windows: /release/Windows.bat
-* Linux: /release/Linux.sh
+* Windows: ```/release/Windows.bat```
+* Linux: ```/release/Linux.sh```
 
 
 *Postman collection*
