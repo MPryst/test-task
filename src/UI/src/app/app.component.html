@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">    
+    <div class="col-md-6 pull-right">
+      <button class="btn btn-primary" (click)="onFetchPosts()">Reload</button>    
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">        
+      <h2><b>Balance: ${{this.balance.toFixed(2)}}</b></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-3">
+      <p *ngIf="loadedTransactions.length < 1 && !isFetching">No transactions available!</p>
+      <ul class="list-group" *ngIf="loadedTransactions.length >= 1 && !isFetching">
+        <li class="list-group-item" *ngFor="let post of loadedTransactions">
+          <div class="row">
+            <div class="col-md-10">
+              <h3 [ngStyle]="{'color': post.type == 0 ? 'green' : 'red'}">${{ post.amount }} |
+                {{ post.type == 0 ? "Credit" : "Debit" }}</h3>
+              <div *ngIf="post.showAll">
+                <p><b>Date:</b> {{post.effectiveDate}}</p>
+                <p><b>Transaction Code</b> {{post.uuid}}</p>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button (click)="onToggleInfo(post.uuid)" class="btn btn-primary"><b>+</b></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <p *ngIf="isFetching && !error">Loading...</p>
+    </div>
+  </div>
+
+</div>
